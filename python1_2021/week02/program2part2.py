@@ -12,14 +12,16 @@ def add_people(x):
     new_lines=''
     
     for num in range(0,int(how_many)):
-        print(num+1)
-        fname = input('Enter first name: ')
-        lname = input('Enter last name: ')
-        age = input('Enter age: ')
-        occup = input('Enter occupation: ')
-        height = input('Enter height (in inches): ')
-        weight = input('Enter weight (in pounds): ')
-        lifestyle = input('Choose lifestyle - 1-sedentary, 2-moderate, 3-active: ')
+        
+        print('{0:-^11}'.format(' ' + str(num+1) + ' ' ))
+        
+        fname = input('First Name: ')
+        lname = input('Last Name: ')
+        age = input('Age: ')
+        occup = input('Occupation: ')
+        height = input('Height (in inches): ')
+        weight = input('Weight (in pounds): ')
+        lifestyle = input('Lifestyle (1-sedentary, 2-moderate, 3-active): ')
         line = '{}, {}, {}, {}, {}, {} ,{}\n'
         new_lines +=  line.format(fname, lname, age, occup, height, weight, lifestyle)
         
