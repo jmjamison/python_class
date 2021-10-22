@@ -1,0 +1,7 @@
+First     Last      Age Ht    Wt   
+Anna      Barbara   35  5'0"  129.0
+Catherine Do        45  5'5"  135.6
+Eric      Frederick 28  5'5"  140.0
+Gabriel   Hernandez 55  5'10" 149.9
+Ivy       Joo       31  4'7"  125.7
+Kelly     Marks     21  6'3"  132.3

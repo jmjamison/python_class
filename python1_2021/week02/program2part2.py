@@ -27,13 +27,23 @@ def add_people(x):
         
     return(new_lines)
         
-        
+def inches2feet(height):
+    height_feet = height//12
+    height_inches = height % 12
+    return (height_feet, height_inches)
 
-#import os
 
-#cwd = os.getcwd()
-#print("Current working directory: {0}".format(cwd))
-# use roster_extended.csv
+
+
+# variable lengths
+longestfirst = 9
+longestlast = 8
+age_length = 3
+longestoccupation = 10
+height_length = 5
+weight_length = 3
+activity_length = 10
+
 
 greeting = 'Hello.'
 
@@ -49,7 +59,6 @@ header = roster_file.readline()
 roster_content = roster_file.readlines()
 roster_file.close()
 
-
 print(roster_content)
 
 num_names = len(roster_content)
@@ -62,6 +71,25 @@ new_names = add_people(num_names)
 roster_content.append(new_names)
 
 print(roster_content)
+
+print(longestfirst, longestlast)
+
+for person in roster_content:
+
+    ## First Name: if name is longer than longestfirst, then I need to update longestfirst
+    if len(person[0]) > longestfirst:
+        longestfirst = len(person[0])
+        print(person[0])
+
+    ## Last Name: if name is longer than longestlast, then I need to update longestlast
+    if len(person[1]) > longestlast:
+        longestlast = len(person[1])
+        print(person[1])
+
+
+print(longestfirst, longestlast)
+
+
 
 # the output file
 roster_out = open(input("Save new roster file as:  "), "w")
