@@ -1,0 +1,16 @@
+    First                                Last Age       Occupation              Ht              Wt       Lifestyle 
+     Anna                             Barbara  35            nurse            5'3"             129              99 
+Catherine                                  Do  45        physicist            5'5"             135              99 
+     Eric                           Frederick  28          teacher            5'5"             140              99 
+  Gabriel                           Hernandez  55          surgeon            5'7"             150             n/a 
+      Ivy                                 Joo  31         engineer            5'2"             126             n/a 
+    Kelly                               Marks  21          student            5'4"             132              99 
+    Nancy                               Owens  60     immunologist            5'8"             170             n/a 
+ Patricia                                 Qin  36 dental assistant           4'11"             110             n/a 
+ Roderick                           Stevenson  51       bus driver            5'6"             160             n/a 
+    Tracy                          Umfreville  42      audiologist            5'7"             156             n/a 
+ Victoria Wolfeschlegelsteinhausenbergerdorff  38     data analyst            5'8"             158              99 
+     Lucy                                  Xi  49        professor            5'9"             161              99 
+  Yolanda                             Zachary  58        secretary           5'10"             164             n/a 
+ Spongbob                         Squarepants  33         fry cook            4'2"             100        moderate 
+  Patrick                                Star  35       unemployed            4'5"             100          active 

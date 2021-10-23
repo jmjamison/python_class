@@ -122,12 +122,7 @@ for person in roster_content_split:
     if len(person[3]) > longestoccupation:
         longestoccupation = len(person[3])    
     
-    ## occupation: if name is longer than longestlast, then I need to update longestlast
-    if person[6] == 'x':
-        person[6] = 'n/a' 
-    elif person[6] == '':
-        person[6] = '99'  # ie. missing data
-
+    
 # debugging code
 # print(longestfirst, longestlast, longestoccupation)
 
