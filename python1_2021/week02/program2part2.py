@@ -4,49 +4,45 @@ Name: Jamie Jamison
 Date: 2021-10-22
 Description:  program 2 part 2
 
+roster_extended.csv
 
 '''
-def add_people(x):
-    how_many = x
-    print("adding {0} names.".format(x))
-    new_lines=''
-    
-    for num in range(0,int(how_many)):
+# adds a new person line to raster_content 
+def add_person():    
+    fname = input('First Name: ')
+    lname = input('Last Name: ')
+    age = input('Age: ')
+    occup = input('Occupation: ')
+    height = input('Height (in inches): ')
+    if height.isnumeric() == False:
+        height = input('Height (in inches) must be an integer: ')
+    weight = input('Weight (in pounds): ')
+    if weight.isnumeric() == False:
+        weight = input('Weight (in pounds) must be an integer: ')
+    lifestyle = input('Lifestyle (1-sedentary, 2-moderate, 3-active): ')
+    if lifestyle == '1':
+        lifestyle = "sedentary"
+    elif lifestyle == '2':
+        lifestyle = "moderate"
+    elif lifestyle == '3':
+        lifestyle = "active"
+    else:
+        lifestyle = input("Incorrect input. Please enter 1, 2 or 3 for Lifstyle choice. ")
         
-        print('{0:-^11}'.format(' ' + str(num+1) + ' ' ))
+    new_line = ('{}, {}, {}, {}, {}, {}, {}\n'.format(fname, lname, age, occup, height, weight, lifestyle,'\n'))
         
-        fname = input('First Name: ')
-        lname = input('Last Name: ')
-        age = input('Age: ')
-        occup = input('Occupation: ')
-        height = input('Height (in inches): ')
-        weight = input('Weight (in pounds): ')
-        lifestyle = input('Lifestyle (1-sedentary, 2-moderate, 3-active): ')
-        line = '{}, {}, {}, {}, {}, {} ,{}\n'
-        new_lines +=  line.format(fname, lname, age, occup, height, weight, lifestyle)
+    return(new_line)
         
-    return(new_lines)
-        
+# convert inches to feet
 def inches2feet(height):
     height_feet = height//12
     height_inches = height % 12
-    return (height_feet, height_inches)
+    new_ht = str(height_feet) + "'" + str(height_inches) + '"'
+    return new_ht
 
 
-
-
-# variable lengths
-longestfirst = 9
-longestlast = 8
-age_length = 3
-longestoccupation = 10
-height_length = 5
-weight_length = 3
-activity_length = 10
-
-
+# initial greeting to user, greeting can change
 greeting = 'Hello.'
-
 print(greeting)
 
 # read-only is the default but set to be careful
@@ -59,41 +55,76 @@ header = roster_file.readline()
 roster_content = roster_file.readlines()
 roster_file.close()
 
-print(roster_content)
-
 num_names = len(roster_content)
 print("There are {0} names in this file. Would you like to enter additional names? (Y/N)".format(num_names))
 
-num_names = input("How many more names? ")
+new_names = int(input("How many more names? "))
 
-new_names = add_people(num_names)
+#print("adding {0} names.".format(num_names))
 
-roster_content.append(new_names)
+for new_names in range(0,new_names):
+    print('{0:-^11}'.format(' ' + str(new_names+1) + ' ' ))   
+    roster_content.append(add_person())
 
-print(roster_content)
 
-print(longestfirst, longestlast)
+# split up roster_content
+roster_content_split = []
 
-for person in roster_content:
+for name in roster_content:
+    current_row = name.replace('\n', '')    
+    roster_content_split.append(current_row.split(',')) 
+    
+#print(roster_content_split)
+# get lengths
+# variable lengths
+longestfirst = 9
+longestlast = 8
+age_length = 3
+longestoccupation = 10
+height_length = 5
+weight_length = 3
+activity_length = 10
+
+#print(longestfirst, longestlast, longestoccupation)
+
+for person in roster_content_split:
 
     ## First Name: if name is longer than longestfirst, then I need to update longestfirst
     if len(person[0]) > longestfirst:
         longestfirst = len(person[0])
-        print(person[0])
 
     ## Last Name: if name is longer than longestlast, then I need to update longestlast
     if len(person[1]) > longestlast:
         longestlast = len(person[1])
-        print(person[1])
+        
+    ## occupation: if name is longer than longestlast, then I need to update longestlast
+    if len(person[3]) > longestoccupation:
+        longestoccupation = len(person[3])    
+    
+    ## occupation: if name is longer than longestlast, then I need to update longestlast
+    if person[6] == 'x':
+        person[6] = 'n/a' 
+    elif person[6] == '':
+        person[6] = '99'  # ie. missing data
 
+print(longestfirst, longestlast, longestoccupation)
 
-print(longestfirst, longestlast)
-
+type(longestfirst)
 
 
 # the output file
 roster_out = open(input("Save new roster file as:  "), "w")
-roster_strings = ''.join(roster_content)
-roster_out.write(roster_strings)
+
+# header
+header = '{:>{var1}} {:>{var2}} {:>3} {:>{var3}} {:>15} {:>15} {:>15} \n'.format('First', 'Last', 'Age', 'Occupation', 'Ht', 'Wt', 'Lifestyle', var1 = longestfirst, var2 = longestlast, var3 = longestoccupation)
+roster_out.write(header)
+
+for person in roster_content_split:
+    # Anna', 'Barbara', '35', 'nurse', '63', '129', '', 'x', '']
+    personformat = '{:>{var1}} {:>{var2}} {:>3} {:>{var3}} {:>15} {:>15} {:>15} \n'.format(person[0], person[1], person[2], person[3], inches2feet(int(person[4])), person[5], person[6], var1 = longestfirst, var2 = longestlast, var3 = longestoccupation)
+    #print(personformat)
+    #roster_strings = ''.join(roster_content_split)
+    roster_out.write(personformat)
+    
 roster_out.close()
 print("File saved!")
