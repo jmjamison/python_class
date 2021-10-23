@@ -1,0 +1,14 @@
+Q: I don't know. what is the answer?
+A: Q
+Q: Q2
+A: foobar
+Q: foobar2
+A: foober3
+Q: what day is this?
+A: today
+Q: what year?
+A: this year
+[10/18/21 18:04:53] Q: what day is it?
+[10/18/21 18:04:55] A: monday
+[10/18/21 18:05:05] Q: what year is it?
+[10/18/21 18:05:09] A: this year
