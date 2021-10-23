@@ -8,7 +8,7 @@ roster_extended.csv
 
 '''
 '''
-creates a new person line, returns that line to be appended to roster_content
+function creates a new person line, returns that line to be appended to roster_content
 '''
 def add_person():    
     fname = input('First Name: ')
@@ -36,20 +36,25 @@ def add_person():
     return(new_line)
         
 
-# convert inches to feet
+'''
+convert inches to feet, called when printing out the report, height
+'''
 def inches2feet(height):
     height_feet = height//12
     height_inches = height % 12
     new_ht = str(height_feet) + "'" + str(height_inches) + '"'
     return new_ht
 
-# --------------------------------------------
-# initial greeting to user, greeting can change, example:  Happy Holidays instead of Hello
+'''
+initial greeting to user, greeting can change, example:  Happy Holidays instead of Hello
+'''
 greeting = 'Hello.'
 print(greeting)
 
-# read-only is the default but set here to be careful
-# assume that the input files are in the same directory as the program
+'''
+read-only is the default but set here to be careful
+assume that the input files are in the same directory as the program
+'''
 try:
     roster_file = open(input("Please enter a roster file: "), "r")
 except IOError:
@@ -89,9 +94,9 @@ for name in roster_content:
     current_row = name.replace('\n', '')    
     roster_content_split.append(current_row.split(',')) 
     
-#print(roster_content_split)
-# get lengths
-# variable lengths
+'''
+variable lengths, these are the default column widths
+'''
 longestfirst = 9
 longestlast = 8
 age_length = 3
@@ -100,6 +105,9 @@ height_length = 5
 weight_length = 3
 activity_length = 10
 
+'''
+Check the first name, last name and occupation in case those are wider than the default width
+'''
 for person in roster_content_split:
 
     ## First Name: if name is longer than longestfirst, then I need to update longestfirst
@@ -121,7 +129,7 @@ for person in roster_content_split:
         person[6] = '99'  # ie. missing data
 
 # debugging code
-#print(longestfirst, longestlast, longestoccupation)
+# print(longestfirst, longestlast, longestoccupation)
 
 # the output file
 roster_out = open(input("Save new roster file as:  "), "w")
@@ -133,8 +141,6 @@ roster_out.write(header)
 for person in roster_content_split:
     # Anna', 'Barbara', '35', 'nurse', '63', '129', '', 'x', '']
     personformat = '{:>{var1}} {:>{var2}} {:>3} {:>{var3}} {:>15} {:>15} {:>15} \n'.format(person[0], person[1], person[2], person[3], inches2feet(int(person[4])), person[5], person[6], var1 = longestfirst, var2 = longestlast, var3 = longestoccupation)
-    #print(personformat)
-    #roster_strings = ''.join(roster_content_split)
     roster_out.write(personformat)
     
 roster_out.close()
