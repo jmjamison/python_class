@@ -1,0 +1,23 @@
+Hello.
+Please enter a roster file: roster_extended.csv
+There are 13 names in this file. Would you like to enter additional names? (Y/N)y
+How many more names? 2
+---- 1 ----
+First Name: Spongbob
+Last Name: Squarepants
+Age: 33
+Occupation: fry cook
+Height (in inches): 50
+Weight (in pounds): 100
+Lifestyle (1-sedentary, 2-moderate, 3-active): 2
+---- 2 ----
+First Name: Patrick
+Last Name: Star
+Age: 35
+Occupation: unemployed
+Height (in inches): 53
+Weight (in pounds): 100
+Lifestyle (1-sedentary, 2-moderate, 3-active): 3
+-----------
+Save new roster file as:  roster_extended2.csv
+File saved!
