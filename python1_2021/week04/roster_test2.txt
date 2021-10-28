@@ -1,0 +1,8 @@
+                         First                                Last Age                   Occupation              Ht              Wt       Lifestyle 
+                         Alvin                           Zacchaeus  65                    physician            5'5"             139              99 
+                         Bobby                                 Yap  54                      trainer            5'6"             140              99 
+                       Corinne                                Xuan  87                   biochemist            5'8"             166              99 
+                        Daphne                              Waters  23                 receptionist            5'2"             110             n/a 
+                        Edward                               Viola  43                 statistician            5'4"             145             n/a 
+                     Ferdinand                                Ueng  39               data scientist            6'0"             202              99 
+dflskjalfjalfjlasjflasjflkasjf  sdfjaslfjlksfjlksjflasfa;sfdjlsfj;  99  ;sadfsdjfjsd;fsdfjasdf;asdf            4'9"             100          active 
