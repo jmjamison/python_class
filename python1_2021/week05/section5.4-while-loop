@@ -1,0 +1,93 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "cca7b82a",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# section 5.4 while loop\n",
+    "# if <condition>:\n",
+    "#    <indented code block>\n",
+    "#\n",
+    "# while <condition>:\n",
+    "#    <indented code blocks"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "id": "3dade666",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# practice problem 5.10, p 144\n",
+    "# function interest() takes one input, floating-point interest rate, 0.06, 6%\n",
+    "# compute and return how long in years it would take for an investment to double in value\n",
+    "\n",
+    "def interest(rate):\n",
+    "    amount = 100\n",
+    "    count = 0\n",
+    "    \n",
+    "    while amount < 200:\n",
+    "        count += 1\n",
+    "        amount += amount*rate\n",
+    "    \n",
+    "    return count\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "id": "cbe839c2",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "11"
+      ]
+     },
+     "execution_count": 9,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "interest(0.07)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "a2c8720d",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# "
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.8.8"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
