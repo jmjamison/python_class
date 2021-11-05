@@ -1,3 +1,5 @@
+my_dictionary = {}
+
 wrong_file = True
 
 while wrong_file:
@@ -8,3 +10,10 @@ while wrong_file:
     except IOError:
         print('File not found! Please try again.')
         wrong_file = True    # file not found, wrong file
+        
+        
+for line in vocab_file:
+    key, value = line.split('\t')    
+    my_dictionary[key] = value
+    
+print(my_dictionary)
