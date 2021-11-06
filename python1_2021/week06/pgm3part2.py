@@ -16,4 +16,13 @@ for line in vocab_file:
     key, value = line.split('\t')    
     my_dictionary[key] = value
     
-print(my_dictionary)
+#print(my_dictionary)
+my_dictionary = {}
+for line in vocab_file:
+    key, value = line.split('\t')    
+    my_dictionary[key] = value
+
+    for key, value in my_dictionary.items():
+        #print(key, value)
+        #print(key + ":\t" +value)
+        print('{:10} - {}'.format(key, value))
