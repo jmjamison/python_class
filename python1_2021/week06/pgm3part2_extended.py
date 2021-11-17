@@ -18,6 +18,9 @@ Program 3 part 2
         file name to save the new dictionary. **DO NOTE write over the original 
         unless enterd by the user.
 9) save as text (txt) file, tap separated
+Extended:
+10) ask Y or N about writing out a new file
+11) delete a term from the dictionary file
 
 '''
 '''
@@ -45,9 +48,34 @@ for line in vocab_file:
 vocab_file.close()
 
 '''
+List out how many terms are currently in the dictionary and
+prompt to see if the user wants to delete a term
+'''
+print("There are {} terms in this vocabulary list: ".format(len(my_dictionary)))
+for key, value in my_dictionary.items():
+    print('{:10} - {}'.format(key, value))
+
+answer = "Y"
+while answer == "Y":
+    answer = input("Would you like to delete an item Y/N: ").upper()
+    #print(answer)
+    if answer != "Y":
+        #print(answer)
+        break
+    
+    term_to_delete = input("What term would you like to delete from the dictionary: ")
+    if term_to_delete in my_dictionary.keys():
+        my_dictionary.pop(term_to_delete)
+        print(term_to_delete, " deleted from the dictionary.")
+    else:
+        print(term_to_delete, " is not in the dictionary.")
+                        
+
+'''
 List out how many terms are currently in the dictionary
 '''
 print("There are {} terms in this vocabulary list: ".format(len(my_dictionary)))
+
 
 '''
 Main body of program
@@ -59,8 +87,7 @@ If no duplicates or updates of existing terms, then add the new term
 Finally print the list of terms and definitions         
 '''
 answer = "Y"
-default_dict = my_dictionary
-while answer.capitalize() == "Y":
+while answer == "Y":
     answer = input("Would you like to add more items Y/N: ").upper()
     #print(answer)
     if answer != "Y":
@@ -131,16 +158,39 @@ for key, value in my_dictionary.items():
     #print(key + ":\t" +value)
     print('{:10} - {}'.format(key, value))
     
-try:
-    outfile = open(input("Would you like to save the file as (enter a file name): "), "w")
-        
-except IOError:
-        print("File not accessible")
-        
-#outfile.writeline(str(my_dictionary))
-for key, value in my_dictionary.items():
-    line = key + "\t" + value
-    #print(line)
-    outfile.write(line)
-        
-outfile.close()
+''' 
+Prompt the user to see if they want to print an output file or not
+'''
+answer = "Y"
+#print("Answer starts as: ", answer)
+while answer == "Y":
+    answer = input("Do you want to save an output file? Y/N: ").upper()
+    print("First answer: ", answer)
+    if answer != "Y":
+        #print("Answer not Y: ", answer)
+        break
+    
+    else:   
+        try:
+            outfile = open(input("Enter a file name: "), "w")
+            #print("File name: ", outfile)  
+            for key, value in my_dictionary.items():
+                line = key + "\t" + value
+                #print(line)
+                outfile.write(line)
+                            
+            outfile.close() 
+            break # done
+                    
+                        
+    
+        except IOError:
+            print("File not accessible")
+            
+            
+            
+print("Done")
+
+                  
+    
+            
